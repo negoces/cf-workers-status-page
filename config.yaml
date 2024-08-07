@@ -2,7 +2,7 @@ settings:
   title: 'Status Page'
   url: 'https://status-page.eidam.dev' # used for Slack messages
   logo: logo-192x192.png # image in ./public/ folder
-  daysInHistogram: 30 # number of days you want to display in histogram
+  daysInHistogram: 120 # number of days you want to display in histogram
   collectResponseTimes: true # collects avg response times from CRON locations
 
   allmonitorsOperational: 'All Systems Operational'
@@ -21,5 +21,13 @@ monitors:
     url: 'https://docker.liyp.cc/v2/'
     method: GET
     expectStatus: 401
+    followRedirect: true
+    linkable: true
+  - id: edge.nekodayo.cc
+    name: edge.nekodayo.cc
+    description: 'Nekodayo Edge CDN'
+    url: 'https://edge.nekodayo.cc/'
+    method: GET
+    expectStatus: 404
     followRedirect: true
     linkable: true
